@@ -1,0 +1,4 @@
+sebuah cara untuk mengelompokkan program kedalam sebuah package tersendiri
+enkapkulasi
+php tidak mengijinkan kita untuk memiliki 2 class dengan nama yg sama
+bagaimana jika menggunakan script/library dari pihak ketiga

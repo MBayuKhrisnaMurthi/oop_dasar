@@ -1,0 +1,4 @@
+<!-- proses pemanggilan kelass (file) tanpa harus menggunakan require
+1 class ditulis dalam 1 file -->
+sql_autoload_rehister
+require once __dir__
