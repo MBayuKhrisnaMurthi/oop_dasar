@@ -35,7 +35,7 @@ class Komik extends Produk {
     }
 
     public function getLabel(){
-        $prd = "Komik : ". parent::getlabel() ." - {$this->hlm} Halaman.";
+        $prd = "Komik : ". parent::getLabel() ." - {$this->hlm} Halaman.";
         return $prd;
     }
 
