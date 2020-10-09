@@ -1,6 +1,6 @@
 <?php
 
-class Coba {
+abstract class Coba {
     private $nama, $penulis, $penerbit, $harga;
     public $diskon;
 
@@ -12,7 +12,10 @@ class Coba {
         $this->harga = $harga;
     }
 
-    public function getInfoProduk(){
+    abstract public function getInfoProduk();
+    
+    
+    public function getInfo(){
         $prd = "{$this->nama} | {$this->penulis}, {$this->penerbit} (Rp.{$this->harga})";
         return $prd;
     }
@@ -61,7 +64,7 @@ class Komik extends Coba {
 
     public function getInfoProduk(){
         //- Komik : Naruto | Masashi Kisimoto, Shonen Jump (30000) - 100 Halaman.
-        $prd = "Komik : " . parent::getInfoProduk() . "- {$this->hlm} Halaman.";
+        $prd = "Komik : " . parent::getInfo() . "- {$this->hlm} Halaman.";
         return $prd;
     }
 }
@@ -77,7 +80,7 @@ class Game extends Coba {
 
     public function getInfoProduk(){
         // - Game : Uncharted | Neil Druckmann, Sony Computer (250000) ~ 50 Jam.
-        $prd = "Game : " . parent::getInfoProduk() . "~ {$this->jam} Jam.";
+        $prd = "Game : " . parent::getInfo() . "~ {$this->jam} Jam.";
         return $prd;
     }
 }
