@@ -1,6 +1,10 @@
 <?php
 
-abstract class Coba {
+interface getInfoProduk {
+    public function getInfoProduk();
+}
+
+abstract class Coba{
     private $nama, $penulis, $penerbit, $harga;
     public $diskon;
 
@@ -11,10 +15,7 @@ abstract class Coba {
         $this->penerbit = $penerbit;
         $this->harga = $harga;
     }
-
-    abstract public function getInfoProduk();
-    
-    
+       
     public function getInfo(){
         $prd = "{$this->nama} | {$this->penulis}, {$this->penerbit} (Rp.{$this->harga})";
         return $prd;
@@ -53,7 +54,7 @@ abstract class Coba {
     }
 }
 
-class Komik extends Coba {
+class Komik extends Coba implements getInfoProduk{
     private $hlm;
 
     public function __construct($nama, $penulis, $penerbit, $harga, $hlm)
@@ -69,7 +70,7 @@ class Komik extends Coba {
     }
 }
 
-class Game extends Coba {
+class Game extends Coba implements getInfoProduk{
     private $jam;
 
     public function __construct($nama, $penulis, $penerbit, $harga, $jam)
