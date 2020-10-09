@@ -5,7 +5,7 @@ interface getInfoProduk {
 }
 
 abstract class Coba{
-    private $nama, $penulis, $penerbit, $harga;
+    protected $nama, $penulis, $penerbit, $harga;
     public $diskon;
 
     public function __construct($nama = 'nama', $penulis = 'penulis', $penerbit = 'penerbit', $harga ='harga')
@@ -16,10 +16,7 @@ abstract class Coba{
         $this->harga = $harga;
     }
        
-    public function getInfo(){
-        $prd = "{$this->nama} | {$this->penulis}, {$this->penerbit} (Rp.{$this->harga})";
-        return $prd;
-    }
+    abstract public function getInfo();
 
     public function setNama($nama){
         $this->nama = $nama;
@@ -63,9 +60,14 @@ class Komik extends Coba implements getInfoProduk{
         $this->hlm = $hlm;
     }
 
+    public function getInfo(){
+        $prd = "{$this->nama} | {$this->penulis}, {$this->penerbit} (Rp.{$this->harga})";
+        return $prd;
+    }
+
     public function getInfoProduk(){
         //- Komik : Naruto | Masashi Kisimoto, Shonen Jump (30000) - 100 Halaman.
-        $prd = "Komik : " . parent::getInfo() . "- {$this->hlm} Halaman.";
+        $prd = "Komik : " . $this->getInfo() . " - {$this->hlm} Halaman.";
         return $prd;
     }
 }
@@ -79,9 +81,14 @@ class Game extends Coba implements getInfoProduk{
         $this->jam = $jam;
     }
 
+    public function getInfo(){
+        $prd = "{$this->nama} | {$this->penulis}, {$this->penerbit} (Rp.{$this->harga})";
+        return $prd;
+    }
+
     public function getInfoProduk(){
         // - Game : Uncharted | Neil Druckmann, Sony Computer (250000) ~ 50 Jam.
-        $prd = "Game : " . parent::getInfo() . "~ {$this->jam} Jam.";
+        $prd = "Game : " . $this->getInfo() . " ~ {$this->jam} Jam.";
         return $prd;
     }
 }
